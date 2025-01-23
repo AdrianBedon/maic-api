@@ -21,7 +21,7 @@ public class DtoMapperUserScoring {
 
     public UserScoringDto build() {
         if (scoring == null) {
-            throw new RuntimeException("You should send an entity!");
+            throw new IllegalArgumentException("You should send an entity!");
         }
         return new UserScoringDto(this.scoring.getNumTelefono(), this.scoring.getNombre(), this.scoring.getAdelantaPago(),
                 this.scoring.getTramo0(), this.scoring.getTramo30(), this.scoring.getTramo60());
