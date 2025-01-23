@@ -1,7 +1,6 @@
 package com.telefonica.maic_api.controllerTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
@@ -23,7 +22,7 @@ import com.telefonica.maic_api.service.UserScoringService;
 import com.telefonica.maic_api.controller.UserScoringController;
 
 @ExtendWith(MockitoExtension.class)
-public class UserScoringControllerTest {
+class UserScoringControllerTest {
 
     @Mock
     private UserScoringService scoringService;
@@ -51,7 +50,7 @@ public class UserScoringControllerTest {
     }
 
     @Test
-    public void testFindAll() {
+    void testFindAll() {
         List<UserScoringDto> userScoringDtos = Arrays.asList(userScoringDto);
         when(scoringService.findAll()).thenReturn(userScoringDtos);
 
@@ -62,7 +61,7 @@ public class UserScoringControllerTest {
     }
 
     @Test
-    public void testFindUser() {
+    void testFindUser() {
         when(scoringService.findByNumTelefono("123456789")).thenReturn(Optional.of(userScoring));
 
         ResponseEntity<?> response = userScoringController.findUser("123456789");
@@ -72,7 +71,7 @@ public class UserScoringControllerTest {
     }
 
     @Test
-    public void testFindUser_NotFound() {
+    void testFindUser_NotFound() {
         when(scoringService.findByNumTelefono("123456789")).thenReturn(Optional.empty());
 
         ResponseEntity<?> response = userScoringController.findUser("123456789");
@@ -82,7 +81,7 @@ public class UserScoringControllerTest {
     }
 
     @Test
-    public void testFindUserNB() {
+    void testFindUserNB() {
         List<UserNB> userNBs = Arrays.asList(userNB);
         when(nbService.findByNumTelefono("123456789")).thenReturn(userNBs);
 
@@ -93,7 +92,7 @@ public class UserScoringControllerTest {
     }
 
     @Test
-    public void testUpdateUserScoring() {
+    void testUpdateUserScoring() {
         when(nbService.save(1L, userNB)).thenReturn(userNB);
 
         ResponseEntity<?> response = userScoringController.updateUserScoring(1L, userNB);
@@ -103,7 +102,7 @@ public class UserScoringControllerTest {
     }
 
     @Test
-    public void testUpdateUserScoring_NotFound() {
+    void testUpdateUserScoring_NotFound() {
         when(nbService.save(1L, userNB)).thenReturn(null);
 
         ResponseEntity<?> response = userScoringController.updateUserScoring(1L, userNB);

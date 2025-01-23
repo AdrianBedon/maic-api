@@ -3,8 +3,6 @@ package com.telefonica.maic_api.serviceTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +17,7 @@ import com.telefonica.maic_api.repository.UserScoringRepository;
 import com.telefonica.maic_api.service.impl.UserScoringServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
-public class UserScoringServiceImplTest {
+class UserScoringServiceImplTest {
 
     @Mock
     private UserScoringRepository userScoringRepository;
@@ -39,7 +37,7 @@ public class UserScoringServiceImplTest {
     }
 
     @Test
-    public void testFindByNumTelefono() {
+    void testFindByNumTelefono() {
         when(userScoringRepository.findByNumTelefono("123456789")).thenReturn(Optional.of(userScoring));
 
         Optional<UserScoring> result = userScoringServiceImpl.findByNumTelefono("123456789");
