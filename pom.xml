@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.telefonica</groupId>
 	<artifactId>maic-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.12</version>
 	<name>maic-api</name>
-	<description>Demo project for Spring Boot</description>
+	<description>API REST para la comunicación de resultados de los modelos predctivos M.A.I.C.</description>
 	<url/>
 	<licenses>
 		<license/>
